@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %} Deprem Analiz Sayfası {% endblock title   %}
+{% block content %}
+{{ bilgi|safe }}
+    <hr>
+    {{ sql|safe }}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} {{ kategori_ayrinti.kategori }} Kategori Bilgileri {%  endblock title %}
+{% block content %}
+
+    <div class="card text-white bg-secondary mb-3" >
+        <img src="https://cdn4.buysellads.net/uu/1/127419/1670532337-Stock2.jpg" class="card-img-top rounded img-thumbnail" alt="..." style="width: 100%;height: 200px">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ kategori_ayrinti.kategori }}</h5>
+            <p class="card-text">{{ kategori_ayrinti.aciklama }}</p>
+            <p class="disabled fs-6"><em><small>Ders İd: {{ kategori_ayrinti.id }}<br>Toplam Ders Sayısı:{{ kategori_ayrinti.total }}</small></em></p>
+        </div>
+        <ul class="list-group list-group-flush ">
+            <p class="text-center fs-5">Son Eklenen Dersler</p>
+            {% for der in ders %}
+                <li class="list-group-item text-white bg-secondary" >
+                    <a href="{% url 'dersler:ders_ayrinti' der.id %}" style="color:white;text-decoration: none">
+                        {{ der.title }} ▶
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

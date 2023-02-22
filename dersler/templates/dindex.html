@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Dersler {% endblock title   %}
+{% block content %}
+    {% for ders in dersler %}
+        <div class="card " style="background-color: #e3f2fd;">
+            <div class="card-header">
+                Kategori: <a href="{%  url 'dersler:kategori_ayrinti' ders.kategori.id %}">{{ ders.kategori }}</a>  Yazar: {{ ders.yazar }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ ders.title }}</h5>
+                <p class="card-text">{{ ders.metin|truncatechars:100 }}
+                    <a href="{%  url 'dersler:ders_ayrinti' ders.id %}" class="">Devamı</a>
+                </p>
+            </div>
+            <div class="card-footer text-muted"><small>
+                Oluşturulma: {{ ders.olusturulma_tarihi }} Düzenlenme: {{ ders.son_duzenleme }}
+            </small>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock content %}

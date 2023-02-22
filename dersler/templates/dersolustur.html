@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load django_bootstrap5 %}
+{% block content %}
+
+    <form method="post" action="{% url 'dersler:dersolustur' %}">
+        {% csrf_token %}
+
+        {% bootstrap_form form %}
+
+        <button name="submit">Kaydet</button>
+        <input type="hidden" name="next" value="{% url 'index' %}" />
+    </form>
+{% endblock content %}

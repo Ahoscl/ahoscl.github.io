@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} {{ ders.title }} Kategori Bilgileri {%  endblock title %}
+{% block content %}
+<style>
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+    <div class="card text-white bg-secondary mb-3" >
+        <img src="https://cdn4.buysellads.net/uu/1/127419/1670532337-Stock2.jpg" class="card-img-top rounded img-thumbnail center" alt="..." style="width: 200px;height: 100%">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ ders.title }}</h5>
+            <p class="card-text">{{ ders.metin }}</p>
+            <p class="disabled fs-6"><em><small>Ders İd: {{ ders.id }} Kategori: {{ ders.kategori }}<br>Yazar: {{ ders.yazar }}</small></em></p>
+        </div>
+
+    </div>
+{% endblock content %}

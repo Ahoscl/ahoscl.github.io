@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Kategoriler {% endblock %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Kategori Id</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Oluşturulma Tarihi</th>
+            <th scope="col">Oluşturulma Tarihi</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for kategori in kategoriler %}
+            <tr>
+                <th scope="row">{{ kategori.id }}</th>
+                <td>{{ kategori.kategori }}</td>
+                <td>{{ kategori.aciklama }}</td>
+                <td>{{ kategori.olusturulma_tarihi }}</td>
+                <td>{{ kategori.total }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{{ say }}
+{% endblock content %}

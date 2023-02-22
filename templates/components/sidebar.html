@@ -1,0 +1,40 @@
+<div class="col-sm-3">
+
+    <div class="card bg-info-50 mb-3">
+        <div class="card-header bg-info text-white">
+            MENÜ
+        </div>
+
+        <div class="card-body bg-info">
+            <h5>{{ user.username }} Hoş Geldiniz</h5>
+            {% if user.is_authenticated %}
+                <button class="btn btn-warning">
+                    <a  href="{% url 'users:logout' %}">Çıkış</a> </button>
+            {% endif %}
+
+            <ul class=" bg-info">
+
+                {% if user.is_authenticated %}
+                    <li class="list-group-item bg-info"><a href="{% url 'users:profile' user.id %}">Profilim</a></li>
+                    <li class="list-group-item bg-info"><a href="{% url 'users:login' %}">Kategorilerim</a></li>
+                    <li class="list-group-item bg-info"><a href="{% url 'users:register' %}">Yazılarım</a></li>
+                {% else %}
+                    <li class="list-group-item bg-info"><a href="{% url 'users:login' %}">Giriş</a></li>
+                    <li class="list-group-item bg-info"><a href="{% url 'users:register' %}">Kayıt Ol</a></li>
+                {% endif %}
+            </ul>
+
+            <h5>Kullanıcı İşlemleri</h5>
+            <ul class=" bg-info">
+                <li class="list-group-item bg-info"><a href="{% url 'dersler:kategoriler' %}">Kategoriler</a></li>
+                <li class="list-group-item bg-info"><a href="{% url 'dersler:index' %}">Tüm Dersler</a></li>
+                <li class="list-group-item bg-info"><a href="{% url 'dersler:dersolustur' %}">Ders Oluştur</a></li>
+                <li class="list-group-item bg-info"><a href="{% url 'dersler:kategoriolustur' %}">Kategori Oluştur</a></li>
+            </ul>
+        </div>
+        <div class="card-footer bg-info text-white-50">
+            İşlemlerinizi Yukardan yapınız.
+        </div>
+
+    </div>
+</div>
